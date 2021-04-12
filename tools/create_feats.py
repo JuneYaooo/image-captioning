@@ -12,9 +12,10 @@ def main(args):
     count = 0
     with open(args.infeats, "r") as tsv_in_file:
         reader = csv.DictReader(tsv_in_file, delimiter='\t', fieldnames = FIELDNAMES)
+        print("start convert bottom up features to npz files---")
         for item in reader:
-            if count % 1000 == 0:
-                print(count)
+            if count % 10000 == 0:
+                print(count,'finished')
             count += 1
 
             item['image_id'] = int(item['image_id'])
