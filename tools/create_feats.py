@@ -10,7 +10,7 @@ FIELDNAMES = ['image_id', 'image_w','image_h','num_boxes', 'boxes', 'features']
 
 def main(args):      
     count = 0
-    with open(args.infeats, "r+b") as tsv_in_file:
+    with open(args.infeats, "r") as tsv_in_file:
         reader = csv.DictReader(tsv_in_file, delimiter='\t', fieldnames = FIELDNAMES)
         for item in reader:
             if count % 1000 == 0:
@@ -22,7 +22,7 @@ def main(args):
             item['image_w'] = int(item['image_w'])
             item['num_boxes'] = int(item['num_boxes'])
             for field in ['boxes', 'features']:
-                item[field] = np.frombuffer(base64.decodestring(item[field]),
+                item[field] = np.frombuffer(base64.b64decode(item[field]),
                         dtype=np.float32).reshape((item['num_boxes'],-1))
             image_id = item['image_id']                    
             
