@@ -151,7 +151,7 @@ class XTransformer(BasicModel):
                 candidate_logprob = seq_mask * candidate_logprob + old_seq_logprob * (1 - seq_mask)
 
             selected_idx, selected_logprob = self.select(batch_size, beam_size, t, candidate_logprob)
-            selected_beam = selected_idx / candidate_logprob.shape[-1]
+            selected_beam = selected_idx // candidate_logprob.shape[-1]
             selected_words = selected_idx - selected_beam * candidate_logprob.shape[-1]
 
             self.decoder.apply_to_states(self._expand_state(batch_size, beam_size, cur_beam_size, selected_beam))
