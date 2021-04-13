@@ -23,11 +23,11 @@ DATA_LOADER:
   NUM_WORKERS: 4
   SHUFFLE: True
   TRAIN_GV_FEAT: ''
-  TRAIN_ATT_FEATS: './mscoco/feature/up_down_100'
+  TRAIN_ATT_FEATS: './mscoco/feature/up_down_10_100'
   VAL_GV_FEAT: ''
-  VAL_ATT_FEATS: './mscoco/feature/up_down_100'
+  VAL_ATT_FEATS: './mscoco/feature/up_down_10_100'
   TEST_GV_FEAT: ''
-  TEST_ATT_FEATS: './mscoco/feature/up_down_100'
+  TEST_ATT_FEATS: './mscoco/feature/up_down_10_100'
   TRAIN_ID: './mscoco/txt/coco_train_image_id.txt'
   VAL_ID: './mscoco/txt/coco_val_image_id.txt'
   TEST_ID: './mscoco/txt/coco_test_image_id.txt'
